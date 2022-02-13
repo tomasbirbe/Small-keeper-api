@@ -10,27 +10,25 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint', 'import'],
+  ignorePatterns: ['*.json'],
   rules: {
     'prettier/prettier': [
       'error',
       {
+        printWidth: 100,
+        trailingComma: 'all',
         tabWidth: 2,
+        semi: true,
         singleQuote: true,
+        bracketSpacing: true,
+        arrowParens: 'always',
+        endOfLine: 'auto',
       },
     ],
     'import/order': [
       'warn',
       {
-        groups: [
-          'type',
-          'builtin',
-          'object',
-          'external',
-          'internal',
-          'parent',
-          'sibling',
-          'index',
-        ],
+        groups: ['type', 'builtin', 'object', 'external', 'internal', 'parent', 'sibling', 'index'],
         pathGroups: [
           {
             pattern: '~/**',
