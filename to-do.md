@@ -8,3 +8,12 @@
   - [x]  For testing
     - [x]  Install Jest and its types, ts-jest, Supertest
     - [x]  Configure Jest and make a simple test
+- [ ]  Setup database
+  - [ ]  Create and test the connection to database
+  - [ ]  Create and test models
+    - [ ]  Create and test user's model
+- [ ]  Create endpoint
+  - [ ]  Create users' endpoint
+    - [ ]  Create user
+    - [ ]  Delete user
+    - [ ]  Modify user
