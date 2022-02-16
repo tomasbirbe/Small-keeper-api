@@ -1,51 +1,7 @@
-import { DataTypes, Dialect, Sequelize } from 'sequelize';
-import 'dotenv/config';
-const { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_DIALECT, DB_PORT } = process.env;
+import { EntryModel } from './src/db/models';
 
-const db = {
-  name: DB_NAME || '',
-  username: DB_USER || '',
-  password: DB_PASSWORD || '',
-  host: DB_HOST,
-  dialect: DB_DIALECT as Dialect,
-  port: DB_PORT === undefined ? DB_PORT : 3306,
-};
-
-let sequelize;
-
-sequelize = new Sequelize(db.name, db.username, db.password, {
-  host: db.host,
-  dialect: db.dialect,
-  port: db.port,
-});
-
-const Entry = sequelize.define(
-  'Entry',
-  {
-    account: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-  },
-  {
-    freezeTableName: true,
-    createdAt: false,
-    updatedAt: false,
-  },
-);
-
-sequelize.sync();
-
-Entry.create({
-  account: 'test',
-  username: 'tomas',
-  password: 'alpaca',
+EntryModel.create({
+  account: 'Naranja',
+  username: 'Tomas',
+  password: 'hola',
 });
