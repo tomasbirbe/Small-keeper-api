@@ -1,5 +1,7 @@
+import { Sequelize } from 'sequelize/types';
+
 export interface DatabaseConnectionResponse {
-  succesful: boolean;
+  sequelize: Sequelize;
 }
 
 export interface DatabaseCloseResponse {

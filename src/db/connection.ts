@@ -1,7 +1,6 @@
-import { Dialect, Sequelize } from 'Sequelize';
+import { Dialect, Sequelize } from 'sequelize';
 
 import 'dotenv/config';
-import { DatabaseCloseResponse, DatabaseConnectionResponse } from '../types/db/Database';
 
 let sequelize: Sequelize;
 
@@ -17,27 +16,24 @@ const db = {
 };
 
 export const Database = {
-  connect: (): Promise<DatabaseConnectionResponse> => {
-    return new Promise((resolve, reject) => {
-      try {
-        sequelize = new Sequelize(db.name, db.username, db.password, {
-          host: db.host,
-          dialect: db.dialect,
-          port: db.port,
-        });
-        resolve({ succesful: true });
-      } catch (error) {
-        reject({ succesful: false });
-      }
-    });
+  connect: (): Sequelize | any => {
+    try {
+      return (sequelize = new Sequelize(db.name, db.username, db.password, {
+        host: db.host,
+        dialect: db.dialect,
+        port: db.port,
+      }));
+    } catch (error) {
+      return error;
+    }
   },
-  close: (): Promise<DatabaseCloseResponse> =>
-    new Promise((resolve, reject) => {
-      try {
-        sequelize.close();
-        resolve({ isClosed: true });
-      } catch (error) {
-        reject({ isClosed: false });
-      }
-    }),
+  close: () => {
+    try {
+      sequelize.close();
+
+      return { isClosed: true };
+    } catch (error) {
+      return { isClosed: false };
+    }
+  },
 };
