@@ -15,4 +15,5 @@ export default new Sequelize(db.name, db.username, db.password, {
   host: db.host,
   dialect: db.dialect,
   port: db.port,
+  logging: false,
 });
