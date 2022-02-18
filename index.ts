@@ -1,7 +1,9 @@
-import { EntryModel } from './src/db/models';
+import express from 'express';
 
-EntryModel.create({
-  account: 'Naranja',
-  username: 'Tomas',
-  password: 'hola',
-});
+import connection from './src/db/connection';
+import entryRouter from './src/routers/entryRouter';
+const app = express();
+
+connection.sync();
+app.use('/entry', entryRouter);
+app.listen(3001, () => console.log('Listen!'));
