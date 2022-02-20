@@ -64,6 +64,22 @@ describe('/entry', () => {
     expect(response.header['content-type']).toMatch(new RegExp(/application\/json/, 'ig'));
     expect(response.body).toEqual({ msg: "That entry doesn't exist. Check your request" });
   });
+
+  it('Get one entry', async () => {
+    const response = await api.get('/api/entry/11');
+
+    expect(response.status).toEqual(200);
+    expect(response.header['content-type']).toMatch(new RegExp(/application\/json/, 'ig'));
+    expect(response.body).toMatchObject<Entry>(EntryPattern);
+  });
+
+  it('Get one entry with an invalid id', async () => {
+    const response = await api.get('/api/entry/99999');
+
+    expect(response.status).toEqual(400);
+    expect(response.header['content-type']).toMatch(new RegExp(/application\/json/, 'ig'));
+    expect(response.body).toEqual({ msg: "That entry doesn't exist. Check your request" });
+  });
 });
 
 afterAll(() => {
