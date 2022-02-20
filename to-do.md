@@ -13,7 +13,10 @@
   - [x]  Create and test models
     - [x]  Create and test user's model
 - [ ]  Create endpoint
-  - [ ]  Create users' endpoint
+  - [x]  Create users' endpoint
     - [ ]  Create user
+      - [ ]  Test create user
     - [ ]  Delete user
+      - [ ]  Test delete user
     - [ ]  Modify user
+      - [ ]  Test modify user
