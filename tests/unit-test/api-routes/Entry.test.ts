@@ -39,12 +39,30 @@ describe('/entry', () => {
     expect(entry).toMatchObject<Entry>(EntryPattern);
   });
 
-  it('Request withut enough data, like password, username or account', async () => {
+  it('Create entry without enough data, like password, username or account', async () => {
     expect.assertions(2);
     const response = await api.post('/api/entry').send({});
 
     expect(response.status).toEqual(400);
     expect(response.header['content-type']).toMatch(new RegExp(/application\/json/, 'ig'));
+  });
+
+  it('Delete entry', async () => {
+    expect.assertions(3);
+    const response = await api.delete('/api/entry/10');
+
+    expect(response.status).toEqual(200);
+    expect(response.header['content-type']).toMatch(new RegExp(/application\/json/, 'ig'));
+    expect(response.body).toEqual({ msg: 'The entry was deleted sucessfully' });
+  });
+
+  it('Delete entry with an inexistent id', async () => {
+    expect.assertions(3);
+    const response = await api.delete('/api/entry/9999');
+
+    expect(response.status).toEqual(400);
+    expect(response.header['content-type']).toMatch(new RegExp(/application\/json/, 'ig'));
+    expect(response.body).toEqual({ msg: "That entry doesn't exist. Check your request" });
   });
 });
 

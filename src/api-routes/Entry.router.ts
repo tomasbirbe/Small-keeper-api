@@ -1,10 +1,11 @@
 import express from 'express';
 
-import { createEntry, getAllEntries } from '../controllers/Entry.controller';
+import { createEntry, deleteEntry, getEntries } from '../controllers/Entry.controller';
 
 const entryRouter = express.Router();
 
-entryRouter.get('/', getAllEntries);
+entryRouter.get('/', getEntries);
 entryRouter.post('/', createEntry);
+entryRouter.delete('/:id', deleteEntry);
 
 export default entryRouter;
