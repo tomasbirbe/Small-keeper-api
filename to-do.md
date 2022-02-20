@@ -11,12 +11,14 @@
 - [ ]  Setup database
   - [x]  Create and test the connection to database
   - [x]  Create and test models
-    - [x]  Create and test user's model
+    - [x]  Create and test entry's model
 - [ ]  Create endpoint
-  - [x]  Create users' endpoint
-    - [x]  Create user
-      - [x]  Test create user
-    - [ ]  Delete user
-      - [ ]  Test delete user
-    - [ ]  Modify user
-      - [ ]  Test modify user
+  - [x]  Create entries endpoint
+    - [x]  Create entry
+      - [x]  Test create entry
+    - [x]  Delete entry
+      - [x]  Test delete entry
+    - [x]  Modify entry
+      - [ ]  Test modify entry
+    - [x]  Get one entry
+      - [ ]  Test Get one entry
