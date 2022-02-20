@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { Model } from 'sequelize/types';
+import { Model, ValidationError } from 'sequelize/types';
 
 import { EntryModel } from '../db/models';
 
@@ -27,8 +27,5 @@ export function createEntry(request: Request, response: Response) {
 
   EntryModel.create({ account, username, password })
     .then((entry) => response.status(201).json(entry))
-    .catch((error) => {
-      console.log(error);
-      response.status(500).json({ msg: "Couldn't create a new entry" });
-    });
+    .catch((error) => response.status(400).json({ msg: "Couldn't create a new entry" }));
 }

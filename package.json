@@ -7,6 +7,7 @@
     "start": "cross-env NODE_ENV=production ts-node index.ts",
     "dev": "cross-env NODE_ENV=development nodemon --exec \"./node_modules/.bin/ts-node\" index.ts",
     "test": "cross-env NODE_ENV=testing jest --silent",
+    "test:no-silent": "cross-env NODE_ENV=testing jest",
     "test:watch": "npm test -- --watch",
     "test:handles": "npm test -- --detectOpenHandles"
   },
