@@ -10,8 +10,8 @@
     - [x]  Configure Jest and make a simple test
 - [ ]  Setup database
   - [x]  Create and test the connection to database
-  - [ ]  Create and test models
-    - [ ]  Create and test user's model
+  - [x]  Create and test models
+    - [x]  Create and test user's model
 - [ ]  Create endpoint
   - [ ]  Create users' endpoint
     - [ ]  Create user
