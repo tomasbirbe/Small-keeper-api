@@ -80,6 +80,44 @@ describe('/entry', () => {
     expect(response.header['content-type']).toMatch(new RegExp(/application\/json/, 'ig'));
     expect(response.body).toEqual({ msg: "That entry doesn't exist. Check your request" });
   });
+
+  it('Modify an entry', async () => {
+    expect.assertions(4);
+    const response = await api
+      .put('/api/entry/13')
+      .send({ account: 'Hotmail', username: 'tomas', password: 'tomas' });
+
+    expect(response.status).toEqual(200);
+    expect(response.header['content-type']).toMatch(new RegExp(/application\/json/, 'ig'));
+    response.body.forEach((entry: Entry) => {
+      expect(entry).toMatchObject<Entry>(entry);
+    });
+  });
+
+  it('Modify an entry with the same data', async () => {
+    expect.assertions(3);
+    const response = await api
+      .put('/api/entry/13')
+      .send({ account: 'Hotmail', username: 'tomas', password: 'tomas' });
+
+    expect(response.status).toEqual(400);
+    expect(response.header['content-type']).toMatch(new RegExp(/application\/json/, 'ig'));
+    expect(response.body).toEqual({
+      msg: "The entry couldn't be modified. Maybe you are trying to modify an entry with the same data it already has",
+    });
+  });
+
+  it('Modify an entry with wrong id', async () => {
+    const response = await api
+      .put('/api/entry/99999')
+      .send({ account: 'Hotmail', username: 'tomas', password: 'tomas' });
+
+    expect(response.status).toEqual(400);
+    expect(response.header['content-type']).toMatch(new RegExp(/application\/json/, 'ig'));
+    expect(response.body).toEqual({
+      msg: "The entry couldn't be modified. Maybe you are trying to modify an entry with the same data it already has",
+    });
+  });
 });
 
 afterAll(() => {

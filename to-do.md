@@ -19,6 +19,6 @@
     - [x]  Delete entry
       - [x]  Test delete entry
     - [x]  Modify entry
-      - [ ]  Test modify entry
+      - [x]  Test modify entry
     - [x]  Get one entry
-      - [ ]  Test Get one entry
+      - [x]  Test Get one entry
