@@ -6,7 +6,7 @@ import {
   getEntries,
   getEntry,
   modifyEntry,
-} from '../controllers/Entry.controller';
+} from '../../controllers/Entry.controller';
 
 const entryRouter = express.Router();
 
