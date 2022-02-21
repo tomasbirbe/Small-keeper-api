@@ -1,7 +1,7 @@
 import express, { json } from 'express';
 
 import connection from './api/db/connection';
-import entryRouter from './api/entry/Entry.router';
+import entryRouter from './api/entry';
 const app = express();
 
 connection.sync();
