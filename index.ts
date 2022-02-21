@@ -5,9 +5,9 @@ import entryRouter from './src/api/entry';
 import { testRouter } from './src/api/test';
 const app = express();
 
-connection.sync();
+// connection.sync();
 app.use(json());
-app.use('/api/entry', entryRouter);
+// app.use('/api/entry', entryRouter);
 app.use('/api/test', testRouter);
 const server = app.listen(3001, () => console.log('Listen!'));
 
