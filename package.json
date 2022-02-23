@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./dist/index.js",
-    "compile":"tsc index.ts",
+    "start": "npm run compile -- node ./dist/index.js",
+    "compile":"tsc index.ts --p",
     "dev": "cross-env NODE_ENV=development nodemon --exec \"./node_modules/.bin/ts-node\" index.ts",
     "test": "cross-env NODE_ENV=testing jest --silent",
     "test:no-silent": "cross-env NODE_ENV=testing jest",

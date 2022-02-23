@@ -28,5 +28,5 @@ exports.app = app;
 app.use((0, express_1.json)());
 // app.use('/api/entry', entryRouter);
 app.use('/api/test', test_1.testRouter);
-const server = app.listen(3001, () => console.log('Listen!'));
+const server = app.listen(process.env.port || 3001, () => console.log('Listen!'));
 exports.server = server;
