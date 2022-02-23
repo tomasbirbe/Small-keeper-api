@@ -11,7 +11,7 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint', 'import'],
-  ignorePatterns: ['*.json'],
+  ignorePatterns: ['*.json', '/dist/*'],
   rules: {
     'prettier/prettier': [
       'error',
