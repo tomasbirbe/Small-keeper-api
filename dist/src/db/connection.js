@@ -18,4 +18,5 @@ require("dotenv/config");
 //   logging: false,
 // });
 const { DB_URL } = process.env;
+console.log(DB_URL);
 exports.default = new sequelize_1.Sequelize(`${DB_URL}`);

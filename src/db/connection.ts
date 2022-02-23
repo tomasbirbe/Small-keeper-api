@@ -20,4 +20,6 @@ import 'dotenv/config';
 
 const { DB_URL } = process.env;
 
+console.log(DB_URL);
+
 export default new Sequelize(`${DB_URL}`);
