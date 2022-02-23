@@ -18,13 +18,17 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.server = exports.app = void 0;
 const express_1 = __importStar(require("express"));
+const connection_1 = __importDefault(require("./src/db/connection"));
 const test_1 = require("./src/api/test");
 const app = (0, express_1.default)();
 exports.app = app;
-// connection.sync();
+connection_1.default.sync();
 app.use((0, express_1.json)());
 // app.use('/api/entry', entryRouter);
 app.use('/api/test', test_1.testRouter);
