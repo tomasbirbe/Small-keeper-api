@@ -9,6 +9,6 @@ const app = express();
 app.use(json());
 // app.use('/api/entry', entryRouter);
 app.use('/api/test', testRouter);
-const server = app.listen(process.env.port || 3001, () => console.log('Listen!'));
+const server = app.listen(process.env.PORT || 3001, () => console.log('Listen!'));
 
 export { app, server };
